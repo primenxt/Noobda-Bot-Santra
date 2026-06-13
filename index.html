@@ -52,6 +52,10 @@ button{
 </head>
 <body>
 
+<!-- SOUND FILES -->
+<audio id="laughSound" src="https://www.soundjay.com/human/laugh-1.mp3"></audio>
+<audio id="winSound" src="https://www.soundjay.com/human/cheer-01.mp3"></audio>
+
 <!-- GAME SCREEN -->
 <div id="game">
     <h1>Are You Pro Player?</h1>
@@ -80,7 +84,15 @@ function moveYes(){
 function winGame(){
     document.getElementById("game").style.display = "none";
     document.getElementById("winScreen").style.display = "flex";
+
+    // 🎉 play win sound
+    document.getElementById("winSound").play();
 }
+
+// 😂 play laugh sound when hovering YES
+document.getElementById("yes").addEventListener("mouseover", function(){
+    document.getElementById("laughSound").play();
+});
 </script>
 
 </body>
