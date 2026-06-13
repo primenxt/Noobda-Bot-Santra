@@ -32,29 +32,26 @@ button{
     position:absolute;
 }
 
-#game, #winScreen{
+#game, #noobdaScreen{
     display:flex;
     flex-direction:column;
     align-items:center;
-}
-
-#winScreen{
-    display:none;
-    font-size:40px;
     text-align:center;
 }
 
-#emoji{
-    font-size:120px;
+#noobdaScreen{
+    display:none;
+}
+
+#bigText{
+    font-size:60px;
+    color:red;
     margin-top:20px;
+    text-shadow:0 0 10px red;
 }
 </style>
 </head>
 <body>
-
-<!-- SOUND FILES -->
-<audio id="laughSound" src="https://www.soundjay.com/human/laugh-1.mp3"></audio>
-<audio id="winSound" src="https://www.soundjay.com/human/cheer-01.mp3"></audio>
 
 <!-- GAME SCREEN -->
 <div id="game">
@@ -62,14 +59,13 @@ button{
 
     <div>
         <button id="yes" onmouseover="moveYes()">Yes</button>
-        <button onclick="winGame()">No</button>
+        <button onclick="showNoobda()">No</button>
     </div>
 </div>
 
-<!-- WIN SCREEN -->
-<div id="winScreen">
-    <h1>🎉 YOU ARE PRO PLAYER 🎉</h1>
-    <div id="emoji">😂😂😂</div>
+<!-- NOOBDA SCREEN -->
+<div id="noobdaScreen">
+    <h1 id="bigText">😂 You are World's Biggest Noobda Bot 😂</h1>
 </div>
 
 <script>
@@ -81,18 +77,10 @@ function moveYes(){
     document.getElementById("yes").style.top = y + "px";
 }
 
-function winGame(){
+function showNoobda(){
     document.getElementById("game").style.display = "none";
-    document.getElementById("winScreen").style.display = "flex";
-
-    // 🎉 play win sound
-    document.getElementById("winSound").play();
+    document.getElementById("noobdaScreen").style.display = "flex";
 }
-
-// 😂 play laugh sound when hovering YES
-document.getElementById("yes").addEventListener("mouseover", function(){
-    document.getElementById("laughSound").play();
-});
 </script>
 
 </body>
