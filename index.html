@@ -2,133 +2,70 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Noobda Bot Santra</title>
+<title>Funny Game</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
-
 body{
-    background:white;
     height:100vh;
-}
-
-/* HOME PAGE */
-#homePage{
-    text-align:center;
-    margin-top:120px;
-}
-
-#homePage h1{
-    font-size:70px;
-    color:red;
-    text-shadow:0 0 15px red;
-}
-
-nav{
-    margin-top:20px;
-}
-
-nav a{
-    text-decoration:none;
-    color:black;
-    font-size:22px;
-    font-weight:bold;
-}
-
-button{
-    margin-top:40px;
-    padding:15px 35px;
-    font-size:18px;
-    border:none;
-    background:#007bff;
-    color:white;
-    cursor:pointer;
-    border-radius:8px;
-}
-
-/* NOOBDA PAGE */
-#noobdaPage{
-    display:none;
-    height:100vh;
+    display:flex;
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    text-align:center;
+    font-family:Arial;
+    background-color:white; /* ✅ PURE WHITE BACKGROUND */
+    overflow:hidden;
 }
 
-#noobdaPage h1{
-    font-size:90px;
-    font-weight:bold;
-    animation:rgbGlow 3s linear infinite;
+h1{
+    font-size:40px;
 }
 
-@keyframes rgbGlow{
-    0%{
-        color:red;
-        text-shadow:0 0 10px red,0 0 20px red,0 0 40px red;
-    }
-    33%{
-        color:lime;
-        text-shadow:0 0 10px lime,0 0 20px lime,0 0 40px lime;
-    }
-    66%{
-        color:blue;
-        text-shadow:0 0 10px blue,0 0 20px blue,0 0 40px blue;
-    }
-    100%{
-        color:red;
-        text-shadow:0 0 10px red,0 0 20px red,0 0 40px red;
-    }
+.buttons{
+    margin-top:20px;
 }
 
-.homeBtn{
-    margin-top:30px;
+button{
+    padding:15px 30px;
+    font-size:20px;
+    margin:10px;
+    cursor:pointer;
+}
+
+#yes{
+    position:absolute;
+}
+
+#laugh{
+    display:none;
+    font-size:120px;
+    margin-top:20px;
 }
 </style>
 </head>
 <body>
 
-<div id="homePage">
-    <h1>WELCOME TO MY WEBSITE</h1>
+<h1>Are You Pro Player?</h1>
 
-    <nav>
-        <a href="#" onclick="goHome()">Home</a>
-    </nav>
-
-    <button onclick="showNoobda()">Click Me</button>
+<div class="buttons">
+    <button id="yes" onmouseover="moveYes()">Yes</button>
+    <button onclick="showLaugh()">No</button>
 </div>
 
-<div id="noobdaPage">
-    <h1>NOOBDA BOT SANTRA</h1>
-
-    <button class="homeBtn" onclick="goHome()">
-        Home
-    </button>
-</div>
+<div id="laugh">😂😂😂</div>
 
 <script>
-function showNoobda(){
-    document.getElementById("homePage").style.display="none";
-    document.getElementById("noobdaPage").style.display="flex";
+function moveYes(){
+    let x = Math.random() * window.innerWidth - 100;
+    let y = Math.random() * window.innerHeight - 100;
+
+    document.getElementById("yes").style.left = x + "px";
+    document.getElementById("yes").style.top = y + "px";
 }
 
-function goHome(){
-    document.getElementById("homePage").style.display="block";
-    document.getElementById("noobdaPage").style.display="none";
+function showLaugh(){
+    document.getElementById("laugh").style.display = "block";
 }
 </script>
 
 </body>
 </html>
-<style>
-body{
-    background:white;
-}
-</style>
-
