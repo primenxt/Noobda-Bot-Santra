@@ -14,7 +14,6 @@ body{
     flex-direction:column;
     font-family:Arial;
     background:white;
-    overflow:hidden;
 }
 
 h1{
@@ -27,37 +26,34 @@ button{
     margin:10px;
     cursor:pointer;
 }
-
-/* ❌ YES BUTTON BLOCKED STYLE */
-#yes{
-    opacity:0.4;
-    cursor:not-allowed;
-}
 </style>
 </head>
 <body>
 
-<!-- GAME SCREEN -->
 <div id="game">
     <h1>Are You Pro Player?</h1>
 
     <div>
-        <!-- ❌ YES is disabled -->
-        <button id="yes" disabled>Yes</button>
+        <!-- ❌ YES looks normal but is blocked -->
+        <button onclick="blockYes()">Yes</button>
 
-        <!-- ✅ ONLY THIS WORKS -->
+        <!-- ✅ ONLY WORKING BUTTON -->
         <button onclick="showNoobda()">No</button>
     </div>
 </div>
 
 <!-- RESULT SCREEN -->
 <div id="noobdaScreen" style="display:none; text-align:center;">
-    <h1 style="font-size:60px; color:red; text-shadow:0 0 10px red;">
+    <h1 style="font-size:60px; color:red;">
         😂 You are World's Biggest Noobda Bot 😂
     </h1>
 </div>
 
 <script>
+function blockYes(){
+    alert("❌ Access Denied! Only NO is allowed 😈");
+}
+
 function showNoobda(){
     document.getElementById("game").style.display = "none";
     document.getElementById("noobdaScreen").style.display = "block";
