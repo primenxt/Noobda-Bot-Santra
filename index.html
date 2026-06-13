@@ -2,26 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Funny Game</title>
+<title>Pro Player Test</title>
 
 <style>
 body{
+    margin:0;
     height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     flex-direction:column;
     font-family:Arial;
-    background-color:white; /* ✅ PURE WHITE BACKGROUND */
+    background:white;
     overflow:hidden;
 }
 
 h1{
     font-size:40px;
-}
-
-.buttons{
-    margin-top:20px;
 }
 
 button{
@@ -35,8 +32,19 @@ button{
     position:absolute;
 }
 
-#laugh{
+#game, #winScreen{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+#winScreen{
     display:none;
+    font-size:40px;
+    text-align:center;
+}
+
+#emoji{
     font-size:120px;
     margin-top:20px;
 }
@@ -44,26 +52,34 @@ button{
 </head>
 <body>
 
-<h1>Are You Pro Player?</h1>
+<!-- GAME SCREEN -->
+<div id="game">
+    <h1>Are You Pro Player?</h1>
 
-<div class="buttons">
-    <button id="yes" onmouseover="moveYes()">Yes</button>
-    <button onclick="showLaugh()">No</button>
+    <div>
+        <button id="yes" onmouseover="moveYes()">Yes</button>
+        <button onclick="winGame()">No</button>
+    </div>
 </div>
 
-<div id="laugh">😂😂😂</div>
+<!-- WIN SCREEN -->
+<div id="winScreen">
+    <h1>🎉 YOU ARE PRO PLAYER 🎉</h1>
+    <div id="emoji">😂😂😂</div>
+</div>
 
 <script>
 function moveYes(){
-    let x = Math.random() * window.innerWidth - 100;
-    let y = Math.random() * window.innerHeight - 100;
+    let x = Math.random() * (window.innerWidth - 100);
+    let y = Math.random() * (window.innerHeight - 100);
 
     document.getElementById("yes").style.left = x + "px";
     document.getElementById("yes").style.top = y + "px";
 }
 
-function showLaugh(){
-    document.getElementById("laugh").style.display = "block";
+function winGame(){
+    document.getElementById("game").style.display = "none";
+    document.getElementById("winScreen").style.display = "flex";
 }
 </script>
 
