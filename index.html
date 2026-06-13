@@ -28,26 +28,10 @@ button{
     cursor:pointer;
 }
 
+/* ❌ YES BUTTON BLOCKED STYLE */
 #yes{
-    position:absolute;
-}
-
-#game, #noobdaScreen{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-}
-
-#noobdaScreen{
-    display:none;
-}
-
-#bigText{
-    font-size:60px;
-    color:red;
-    margin-top:20px;
-    text-shadow:0 0 10px red;
+    opacity:0.4;
+    cursor:not-allowed;
 }
 </style>
 </head>
@@ -58,28 +42,25 @@ button{
     <h1>Are You Pro Player?</h1>
 
     <div>
-        <button id="yes" onmouseover="moveYes()">Yes</button>
+        <!-- ❌ YES is disabled -->
+        <button id="yes" disabled>Yes</button>
+
+        <!-- ✅ ONLY THIS WORKS -->
         <button onclick="showNoobda()">No</button>
     </div>
 </div>
 
-<!-- NOOBDA SCREEN -->
-<div id="noobdaScreen">
-    <h1 id="bigText">😂 You are World's Biggest Noobda Bot 😂</h1>
+<!-- RESULT SCREEN -->
+<div id="noobdaScreen" style="display:none; text-align:center;">
+    <h1 style="font-size:60px; color:red; text-shadow:0 0 10px red;">
+        😂 You are World's Biggest Noobda Bot 😂
+    </h1>
 </div>
 
 <script>
-function moveYes(){
-    let x = Math.random() * (window.innerWidth - 100);
-    let y = Math.random() * (window.innerHeight - 100);
-
-    document.getElementById("yes").style.left = x + "px";
-    document.getElementById("yes").style.top = y + "px";
-}
-
 function showNoobda(){
     document.getElementById("game").style.display = "none";
-    document.getElementById("noobdaScreen").style.display = "flex";
+    document.getElementById("noobdaScreen").style.display = "block";
 }
 </script>
 
