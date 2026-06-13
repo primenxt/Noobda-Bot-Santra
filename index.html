@@ -11,13 +11,34 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    flex-direction:column;
-    font-family:Arial;
-    background:white;
+    font-family:monospace;
+    background:black;
+    color:lime;
+    overflow:hidden;
 }
 
-h1{
-    font-size:40px;
+/* HACK SCREEN */
+#hackScreen{
+    text-align:left;
+    padding:20px;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    white-space:pre-line;
+}
+
+/* GAME SCREEN */
+#game, #noobdaScreen{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    width:100%;
+    height:100vh;
+    background:white;
+    color:black;
+    font-family:Arial;
 }
 
 button{
@@ -30,34 +51,69 @@ button{
 </head>
 <body>
 
+<!-- FAKE HACK SCREEN -->
+<div id="hackScreen"></div>
+
+<!-- GAME -->
 <div id="game">
     <h1>Are You Pro Player?</h1>
 
     <div>
-        <!-- ❌ YES looks normal but is blocked -->
         <button onclick="blockYes()">Yes</button>
-
-        <!-- ✅ ONLY WORKING BUTTON -->
         <button onclick="showNoobda()">No</button>
     </div>
 </div>
 
-<!-- RESULT SCREEN -->
-<div id="noobdaScreen" style="display:none; text-align:center;">
-    <h1 style="font-size:60px; color:red;">
+<!-- RESULT -->
+<div id="noobdaScreen">
+    <h1 style="font-size:60px;color:red;">
         😂 You are World's Biggest Noobda Bot 😂
     </h1>
 </div>
 
 <script>
+
+let hackText = document.getElementById("hackScreen");
+
+let lines = [
+"Initializing system...",
+"Connecting to server...",
+"Hacking mainframe...",
+"Bypassing security...",
+"Access granted ✔",
+"Loading game..."
+];
+
+let i = 0;
+
+function runHack(){
+    let interval = setInterval(()=>{
+        if(i < lines.length){
+            hackText.innerHTML += lines[i] + "\n";
+            i++;
+        } else {
+            clearInterval(interval);
+
+            // switch to game
+            document.body.style.background = "white";
+            document.getElementById("hackScreen").style.display = "none";
+            document.getElementById("game").style.display = "flex";
+        }
+    }, 800);
+}
+
 function blockYes(){
     alert("❌ Access Denied! Only NO is allowed 😈");
 }
 
 function showNoobda(){
     document.getElementById("game").style.display = "none";
-    document.getElementById("noobdaScreen").style.display = "block";
+    document.getElementById("noobdaScreen").style.display = "flex";
 }
+
+// start hack animation on load
+runHack();
+
 </script>
 
 </body>
