@@ -6,64 +6,123 @@
 <title>Noobda Bot Santra</title>
 
 <style>
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
 
-    body{
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        height:100vh;
-        background:#000;
-        overflow:hidden;
-        font-family:Arial, sans-serif;
-    }
+body{
+    background:white;
+    height:100vh;
+}
 
-    h1{
-        font-size:5rem;
-        text-transform:uppercase;
-        font-weight:bold;
-        animation: rgbGlow 3s linear infinite;
-    }
+/* HOME PAGE */
+#homePage{
+    text-align:center;
+    margin-top:120px;
+}
 
-    @keyframes rgbGlow{
-        0%{
-            color:red;
-            text-shadow:
-            0 0 10px red,
-            0 0 20px red,
-            0 0 40px red;
-        }
-        33%{
-            color:lime;
-            text-shadow:
-            0 0 10px lime,
-            0 0 20px lime,
-            0 0 40px lime;
-        }
-        66%{
-            color:blue;
-            text-shadow:
-            0 0 10px blue,
-            0 0 20px blue,
-            0 0 40px blue;
-        }
-        100%{
-            color:red;
-            text-shadow:
-            0 0 10px red,
-            0 0 20px red,
-            0 0 40px red;
-        }
+#homePage h1{
+    font-size:70px;
+    color:red;
+    text-shadow:0 0 15px red;
+}
+
+nav{
+    margin-top:20px;
+}
+
+nav a{
+    text-decoration:none;
+    color:black;
+    font-size:22px;
+    font-weight:bold;
+}
+
+button{
+    margin-top:40px;
+    padding:15px 35px;
+    font-size:18px;
+    border:none;
+    background:#007bff;
+    color:white;
+    cursor:pointer;
+    border-radius:8px;
+}
+
+/* NOOBDA PAGE */
+#noobdaPage{
+    display:none;
+    height:100vh;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+}
+
+#noobdaPage h1{
+    font-size:90px;
+    font-weight:bold;
+    animation:rgbGlow 3s linear infinite;
+}
+
+@keyframes rgbGlow{
+    0%{
+        color:red;
+        text-shadow:0 0 10px red,0 0 20px red,0 0 40px red;
     }
+    33%{
+        color:lime;
+        text-shadow:0 0 10px lime,0 0 20px lime,0 0 40px lime;
+    }
+    66%{
+        color:blue;
+        text-shadow:0 0 10px blue,0 0 20px blue,0 0 40px blue;
+    }
+    100%{
+        color:red;
+        text-shadow:0 0 10px red,0 0 20px red,0 0 40px red;
+    }
+}
+
+.homeBtn{
+    margin-top:30px;
+}
 </style>
 </head>
 <body>
 
-<h1>Noobda Bot Santra</h1>
+<div id="homePage">
+    <h1>WELCOME TO MY WEBSITE</h1>
+
+    <nav>
+        <a href="#" onclick="goHome()">Home</a>
+    </nav>
+
+    <button onclick="showNoobda()">Click Me</button>
+</div>
+
+<div id="noobdaPage">
+    <h1>NOOBDA BOT SANTRA</h1>
+
+    <button class="homeBtn" onclick="goHome()">
+        Home
+    </button>
+</div>
+
+<script>
+function showNoobda(){
+    document.getElementById("homePage").style.display="none";
+    document.getElementById("noobdaPage").style.display="flex";
+}
+
+function goHome(){
+    document.getElementById("homePage").style.display="block";
+    document.getElementById("noobdaPage").style.display="none";
+}
+</script>
 
 </body>
 </html>
